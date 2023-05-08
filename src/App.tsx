@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
 import {OnOff} from './components/OnOff/OnOff';
 
 function App() {
 
+    const [onOff, setOnOff]  = useState(false);
 
+    const onOffSwitcher = () => {
+        setOnOff(!onOff)
+    }
 
     return (
         <div>
-            <OnOff on={false}/>
+            <OnOff onOff={onOff} onOffSwitcher={onOffSwitcher}/>
 
             {/*<PageTitle title={'This is app component'}/>*/}
             {/*<PageTitle title={'My friends'}/>*/}
