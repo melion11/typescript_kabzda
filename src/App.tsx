@@ -7,9 +7,9 @@ import {UnControlledAccordion} from "./components/UnControlledAccordion/UnContro
 function App() {
 
     return (
-        <div>
+        <div className={'wrapper'}>
             <OnOff/>
-            <OnOff/>
+
 
             <UnControlledAccordion titleValue={'Menu'} />
             <UnControlledAccordion titleValue={'Users'} />
