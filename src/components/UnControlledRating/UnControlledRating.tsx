@@ -9,64 +9,40 @@ export function UnControlledRating() {
 
     const [value, setValue] = useState(0)
 
-    const addRating = (value:any) => {
-        switch (value) {
-            case 1:
-                return setValue(1)
-            case 2:
-                return setValue(2)
-            case 3:
-                return setValue(3)
-            case 4:
-                return setValue(4)
-            case 5:
-                return setValue(5)
-            default:
-                return value
-        }
-    }
-
-    const onClickButtonHandler1 = () => {
-        addRating(1);
-    }
-    const onClickButtonHandler2 = () => {
-        addRating(2);
-    }
-    const onClickButtonHandler3 = () => {
-        addRating(3);
-    }
-    const onClickButtonHandler4 = () => {
-        addRating(4);
-    }
-    const onClickButtonHandler5 = () => {
-        addRating(5);
+    const addRating = (value: number) => {
+        setValue(value)
     }
 
 
-       return (
-        <div>
-            <Star selected={value >= 1}/><button onClick={onClickButtonHandler1}>1</button>
-            <Star selected={value >= 2}/><button onClick={onClickButtonHandler2}>2</button>
-            <Star selected={value >= 3}/><button onClick={onClickButtonHandler3}>3</button>
-            <Star selected={value >= 4}/><button onClick={onClickButtonHandler4}>4</button>
-            <Star selected={value >= 5}/><button onClick={onClickButtonHandler5}>5</button>
-        </div>
-    );
+
+return (
+    <div>
+        <Star addRating={() => addRating(1)} selected={value >= 1}/>
+        <Star addRating={() => addRating(2)} selected={value >= 2}/>
+        <Star addRating={() => addRating(3)} selected={value >= 3}/>
+        <Star addRating={() => addRating(4)} selected={value >= 4}/>
+        <Star addRating={() => addRating(5)} selected={value >= 5}/>
+    </div>
+);
 
 }
 
 type StarPropsType = {
     selected: boolean;
+    addRating: (value: number) => void
 }
 
 function Star(props: StarPropsType) {
     console.log('Star rendering')
 
-    if (props.selected) {
-        return <span><b>star</b> </span>
-    } else {
-        return <span>star </span>
+    const onClickButtonHandler = (value: any) => {
+        props.addRating(value);
     }
+
+    // return props.selected ? <span style={{cursor: 'pointer'}} onClick={onClickButtonHandler}> <b>star</b></span>  :
+    // <span style={{cursor: 'pointer'}} onClick={onClickButtonHandler}> star</span>
+
+    return <span style={{cursor: 'pointer'}} onClick={onClickButtonHandler}> {props.selected ? <b>star</b> : 'star'}</span>
 
 
 }

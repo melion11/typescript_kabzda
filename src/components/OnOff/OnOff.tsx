@@ -1,41 +1,39 @@
 import React, {useState} from 'react';
 import s from './onOff.module.css'
 
+export type OnOffType = {
+    onOff: boolean
+    setOnOff: (onOff: boolean) => void
 
+}
 
-export const OnOff = () => {
+export const OnOff = (props: OnOffType) => {
 
-    const [onOff, setOnOff]  = useState(false);
+    const buttonClassName = props.onOff ? s.button__green : s.button__red;
+    const onClassName = props.onOff ? s.on__block_green : s.on__block;
+    const offClassName = !props.onOff ? s.off__block_red : s.off__block;
 
     const onOffSwitcher = () => {
-        setOnOff(!onOff)
+        props.setOnOff(!props.onOff)
     }
 
-    const buttonClassName = onOff ? s.button__green : s.button__red;
+    const onClickHandlerSwitcher = () => {
+        onOffSwitcher()
+    }
 
     const onClickHandler = () => {
-       onOffSwitcher()
+        onOffSwitcher()
     }
 
     return (
         <div className={s.onOff__wrapper}>
-            <On selected={onOff}/>
-            <Off selected={!onOff}/>
-            <button className={buttonClassName} onClick={onClickHandler}></button>
+
+            <div onClick={onClickHandler} className={onClassName}>On</div>
+            <div onClick={onClickHandler} className={offClassName}>Off</div>
+
+            <button className={buttonClassName} onClick={onClickHandlerSwitcher}></button>
+
         </div>
     );
 };
 
-type OnOffPropsType = {
-    selected: boolean
-}
-
-const On = (props: OnOffPropsType) => {
-    const onClassName = props.selected ? s.on__block_green : s.on__block;
-    return <div className={onClassName}>On</div>
- }
-
-const Off = (props: OnOffPropsType) => {
-    const offClassName = props.selected ? s.off__block_red : s.off__block;
-    return <div className={offClassName}>Off</div>
-}

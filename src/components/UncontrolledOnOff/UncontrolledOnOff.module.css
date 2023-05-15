@@ -1,0 +1,79 @@
+.onOff__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.on__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    border: solid 1px black;
+    text-align: center;
+}
+
+.on__block_green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    background-color: #4CAF50;
+    text-align: center;
+}
+
+
+.off__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    border: solid 1px black
+
+
+}
+
+.off__block_red {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    background-color: #bb2323;
+}
+
+.button__green {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button__red {
+    background-color: #ad3e3e;
+    border: none;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #295c2a;
+}
