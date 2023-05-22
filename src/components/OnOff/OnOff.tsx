@@ -21,15 +21,15 @@ export const OnOff = (props: OnOffType) => {
         onOffSwitcher()
     }
 
-    const onClickHandler = () => {
-        onOffSwitcher()
+    const onClickHandler = (value:boolean) => {
+        props.setOnOff(value)
     }
 
     return (
         <div className={s.onOff__wrapper}>
 
-            <div onClick={onClickHandler} className={onClassName}>On</div>
-            <div onClick={onClickHandler} className={offClassName}>Off</div>
+            <div onClick={()=>onClickHandler(true)} className={onClassName}>On</div>
+            <div onClick={()=>onClickHandler(false)} className={offClassName}>Off</div>
 
             <button className={buttonClassName} onClick={onClickHandlerSwitcher}></button>
 
