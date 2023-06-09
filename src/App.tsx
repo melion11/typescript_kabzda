@@ -6,6 +6,7 @@ import {UnControlledAccordion} from "./components/UnControlledAccordion/UnContro
 import {Rating} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {Select} from './components/Select/Select';
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -18,12 +19,14 @@ function App() {
 
     const [onOff, setOnOff]  = useState<boolean>(false);
 
+    const items = [{title: 'Ilya', value: '1'}, {title: 'Pasha', value: '2'}, {title: 'Vlad', value: '3'}];
 
     return (
         <div>
             <OnOff onOff={onOff} setOnOff={setOnOff}/>
             <Rating value={rating} setRating={setRating}/>
-            <Accordion titleValue={'Menu'} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} />
+            <Accordion onClick={()=>{}} titleValue={'Menu'} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} items={items} />
+            <Select value={'none'} onChange={()=>{}} items={items}/>
         </div>
     );
 }
