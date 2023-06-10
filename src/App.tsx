@@ -7,6 +7,7 @@ import {Rating} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {Select} from './components/Select/Select';
+import {SelectByDimych} from './components/SelectByDimych/SelectByDimych';
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -26,7 +27,8 @@ function App() {
             <OnOff onOff={onOff} setOnOff={setOnOff}/>
             <Rating value={rating} setRating={setRating}/>
             <Accordion onClick={()=>{}} titleValue={'Menu'} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={setAccordionCollapsed} items={items} />
-            <Select value={'none'} onChange={()=>{}} items={items}/>
+            {/*<Select value={'none'} onChange={()=>{}} items={items}/>*/}
+            <SelectByDimych value={'none'} onChange={()=>{}} items={items}/>
         </div>
     );
 }
