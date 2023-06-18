@@ -7,8 +7,8 @@ export type OnOffType = {
 
 }
 
-export const OnOff = (props: OnOffType) => {
-
+export const OnOff  = React.memo( (props: OnOffType) => {
+    console.log('onOff')
     const buttonClassName = props.onOff ? s.button__green : s.button__red;
     const onClassName = props.onOff ? s.on__block_green : s.on__block;
     const offClassName = !props.onOff ? s.off__block_red : s.off__block;
@@ -35,5 +35,4 @@ export const OnOff = (props: OnOffType) => {
 
         </div>
     );
-};
-
+});

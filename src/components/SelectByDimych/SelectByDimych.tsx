@@ -1,4 +1,4 @@
-import React, {KeyboardEvent, FocusEventHandler, useState, useEffect} from 'react';
+import React, {KeyboardEvent, FocusEventHandler, useState, useEffect, memo} from 'react';
 import s from './SelectByDimych.module.css'
 
 export type ItemType = {
@@ -12,8 +12,8 @@ export type SelectPropsType = {
     items: ItemType[]
 }
 
-export const SelectByDimych = (props: SelectPropsType) => {
-
+export const SelectByDimych = memo((props: SelectPropsType) => {
+    console.log('select rendering')
     const [active, setActive] = useState<boolean>(false)
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value)
 
@@ -81,5 +81,5 @@ export const SelectByDimych = (props: SelectPropsType) => {
             </div>
         </div>
     );
-};
+});
 
