@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useMemo} from 'react';
+import {AccordionTitle} from './AccordionTitle';
+import {AccordionBody} from './AccordionBody';
 
 type ItemType = {
     title: string
@@ -11,7 +13,7 @@ type AccordionPropsType = {
     setAccordionCollapsed: (accordionCollapsed: boolean)=>void
     accordionCollapsed: boolean
     items: ItemType[]
-    onClick: (value: string)=>void
+    onClick?: (value: string)=>void
 }
 
 export const Accordion = React.memo((props: AccordionPropsType) => {
@@ -24,37 +26,4 @@ export const Accordion = React.memo((props: AccordionPropsType) => {
 
 })
 
-type AccordionTitlePropsType = {
-    title: string
-    setAccordionCollapsed: (accordionCollapsed: boolean)=>void
-    accordionCollapsed: boolean
-}
-
-export const AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
-    console.log('AccordionTitle rendering')
-
-    const onClickHandler = () => {
-        props.setAccordionCollapsed(!props.accordionCollapsed)
-    }
-
-    return <h3 onClick={onClickHandler}>{props.title}</h3>
-})
-
-type AccordionBodyPropsType = {
-    items: ItemType[]
-    onClick: (value: string)=>void
-}
-
-
-
-export const AccordionBody = React.memo((props: AccordionBodyPropsType) => {
-    console.log('AccordionBody rendering')
-    return <ul>
-        {props.items.map((item,id) => {
-            return (
-                <li onClick={()=>{props.onClick(item.value)}} key={id}>{item.title}</li>
-            );
-        })}
-    </ul>
-})
 

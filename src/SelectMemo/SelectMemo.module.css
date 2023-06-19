@@ -1,0 +1,63 @@
+.main {
+
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
+}
+
+.selectWrap {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #bbb;
+    width: 200px;
+
+}
+
+
+.selectWrap:focus-within, .selectWrap:hover {
+    border-color:black;
+}
+
+.selectList {
+    list-style: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    opacity: 1;
+}
+
+.selectList--visible {
+    display: flex;
+}
+
+.selectItem {
+    border: 1px solid #bbb;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.selectItemHover {
+    background-color: #eee;
+}
+
+.selectItem.active {
+    background-color: #bb2323;
+    color: #fff;
+}
+

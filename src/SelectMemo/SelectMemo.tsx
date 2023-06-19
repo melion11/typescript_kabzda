@@ -1,24 +1,26 @@
 import React, {KeyboardEvent, FocusEventHandler, useState, useEffect, memo} from 'react';
-import s from './SelectByDimych.module.css'
+import s from './SelectMemo.module.css'
 
 export type ItemType = {
-    title: string
-    value: string
+    id: string
+    country: string
+    city: string
+    population: number
 }
 
 export type SelectPropsType = {
     value: string
-    onChange?: (value: string) => void
+    onChange: (value: string) => void
     items: ItemType[]
 }
 
-export const SelectByDimych = memo((props: SelectPropsType) => {
+export const SelectMemo = memo((props: SelectPropsType) => {
     console.log('select rendering')
     const [active, setActive] = useState<boolean>(false)
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value)
 
-    const selectedItem = props.items.find(el => el.value === props.value)
-    const hoveredItem = props.items.find(el => el.value === hoveredElementValue)
+    const selectedItem = props.items.find(el => el.id === props.value)
+    const hoveredItem = props.items.find(el => el.id === hoveredElementValue)
 
     useEffect(()=>{
         setHoveredElementValue(props.value)
@@ -27,7 +29,7 @@ export const SelectByDimych = memo((props: SelectPropsType) => {
     const toggleItems = () => setActive(!active)
 
     const onItemClick = (value: string) => {
-       props.onChange?.(value)
+       props.onChange(value)
        toggleItems()
     }
 
@@ -35,17 +37,18 @@ export const SelectByDimych = memo((props: SelectPropsType) => {
 
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
             for (let i = 0; i < props.items.length; i++) {
-                if (props.items[i].value === hoveredElementValue) {
+                if (props.items[i].id === hoveredElementValue) {
                     const pretendetnElement = e.key === 'ArrowDown'
                         ? props.items[i + 1]
                         : props.items[i - 1]
                     if (pretendetnElement) {
-                        props.onChange?.(pretendetnElement.value)
+                        props.onChange(pretendetnElement.id)
+                        return
                     }
                 }
             }
             if (!selectedItem) {
-                props.onChange?.(props.items[0].value)
+                props.onChange(props.items[0].id)
             }
         }
         if (e.key === 'Enter' || e.key === 'Escape') {
@@ -57,19 +60,19 @@ export const SelectByDimych = memo((props: SelectPropsType) => {
         <div className="center-container">
             <div className={s.selectWrap}  tabIndex={0} onKeyUp={onKeyUp}>
                 <span className={s.main} onClick={toggleItems}>
-                    {selectedItem ? selectedItem.title : 'none'}
+                    {selectedItem ? selectedItem.city : 'none'}
                 </span>
 
                 {active &&
                     <ul className={`${s.selectList} ${active ? s['selectList--visible'] : ''}`}>
                         {props.items.map(i => {
                                 return (
-                                        <li key={i.value}
-                                            onClick={() => onItemClick(i.value)}
+                                        <li key={i.id}
+                                            onClick={() => onItemClick(i.id)}
                                             className={s.selectItem + ' ' + (hoveredItem === i ? s.selectItemHover : '')}
-                                            onMouseEnter={()=>{setHoveredElementValue(i.value)}}
+                                            onMouseEnter={()=>{setHoveredElementValue(i.id)}}
                                         >
-                                            {i.title}
+                                            {i.city}
                                         </li>
                                 ) }
                         )}
