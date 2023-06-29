@@ -5,6 +5,7 @@ import {Rating} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
 
 import {SelectByDimych} from './components/SelectByDimych/SelectByDimych';
+import {Clock} from './components/Clock/Clock';
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -27,15 +28,16 @@ function App() {
 
     return (
         <div>
-            <OnOff onOff={onOff} setOnOff={setOnOff}/>
-            <Rating value={rating} setRating={setRating}/>
-            <Accordion
-                titleValue={'Menu'}
-                accordionCollapsed={accordionCollapsed}
-                setAccordionCollapsed={setAccordionCollapsed}
-                items={itemsForAccordion} />
-            {/*<Select value={'none'} onChange={()=>{}} items={items}/>*/}
-            <SelectByDimych value={'none'}  items={itemsForSelect}/>
+            {/*<OnOff onOff={onOff} setOnOff={setOnOff}/>*/}
+            {/*<Rating value={rating} setRating={setRating}/>*/}
+            {/*<Accordion*/}
+            {/*    titleValue={'Menu'}*/}
+            {/*    accordionCollapsed={accordionCollapsed}*/}
+            {/*    setAccordionCollapsed={setAccordionCollapsed}*/}
+            {/*    items={itemsForAccordion} />*/}
+            {/*/!*<Select value={'none'} onChange={()=>{}} items={items}/>*!/*/}
+            {/*<SelectByDimych value={'none'}  items={itemsForSelect}/>*/}
+            <Clock/>
         </div>
     );
 }
