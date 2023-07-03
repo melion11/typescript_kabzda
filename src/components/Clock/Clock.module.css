@@ -1,4 +1,21 @@
+.container {
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    width: 200px;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .digital-clock {
+    margin: 0 auto;
     width: 120px;
     background-color: black;
     color: green;
@@ -8,4 +25,113 @@
 
 .clock-digit {
     margin-right: 5px;
+}
+
+/*-----------------------------------*/
+.analogClock {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    transform: scale(1.2);
+}
+
+.clockNumber {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clockHands {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clockHandHour,
+.clockHandMinute,
+.clockHandSecond {
+    position: absolute;
+    background-color: #333;
+    transform-origin: bottom center;
+}
+
+.clockHandHour {
+    width: 3px;
+    height: 40px;
+    top: -40px; /* Adjusted top value */
+    left: 0px;
+    border-radius: 6px 6px 0 0;
+    transform: rotate(180deg);
+}
+
+.clockHandMinute {
+    width: 2px;
+    height: 60px;
+    top: -60px; /* Adjusted top value */
+    left: 1px;
+    border-radius: 4px 4px 0 0;
+    transform: rotate(0);
+}
+
+.clockHandSecond {
+    width: 1px;
+    height: 70px;
+    top: -70px; /* Adjusted top value */
+    left: 2px;
+    transform: rotate(135deg);
+    background-color: red;
+}
+
+.clockNumber:nth-child(1) {
+    transform: rotate(30deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(2) {
+    transform: rotate(60deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(3) {
+    transform: rotate(90deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(4) {
+    transform: rotate(120deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(5) {
+    transform: rotate(150deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(6) {
+    transform: rotate(180deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(7) {
+    transform: rotate(210deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(8) {
+    transform: rotate(240deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(9) {
+    transform: rotate(270deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(10) {
+    transform: rotate(300deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(11) {
+    transform: rotate(330deg) translateY(-80px);
+}
+
+.clockNumber:nth-child(12) {
+    transform: translateY(-80px);
 }
